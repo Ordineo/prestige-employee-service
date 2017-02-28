@@ -1,0 +1,3 @@
+server:
+ port: ${PORT:8585}
+ servlet-path: /employee-service
