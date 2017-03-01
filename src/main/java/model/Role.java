@@ -1,6 +1,8 @@
 package model;
 
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Column;
@@ -11,6 +13,7 @@ import javax.persistence.Id;
 /**
  * Created by SaFu on 28/02/2017.
  */
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @Setter
 @Entity
@@ -27,7 +30,5 @@ public class Role {
     public Role(String title) {
         this.title = title;
     }
-
-    protected Role() {}
 
 }

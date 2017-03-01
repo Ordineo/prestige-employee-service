@@ -1,6 +1,8 @@
 package model;
 
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -8,6 +10,7 @@ import javax.persistence.*;
 /**
  * Created by SaFu on 28/02/2017.
  */
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @Setter
 @Entity
@@ -28,6 +31,4 @@ public class RoleAssignment {
         this.user = user;
         this.role = role;
     }
-
-    protected RoleAssignment() {}
 }
