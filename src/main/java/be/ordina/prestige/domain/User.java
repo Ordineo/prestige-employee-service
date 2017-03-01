@@ -1,4 +1,4 @@
-package be.ordina.prestige.model;
+package be.ordina.prestige.domain;
 
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -26,6 +26,8 @@ public class User {
 
     @Column(name = "username", length = 40)
     private String username;
+    @Column(name = "password", length = 40)
+    private String password;
     @Column(name = "firstname", length = 60)
     private String firstname;
     @Column(name = "lastname", length = 60)
@@ -33,8 +35,14 @@ public class User {
     @Column(name = "avatar", length = 300)
     private String avatar;
 
-    public User(String username, String firstname, String lastname, String avatar) {
+    public User(String username, String password) {
         this.username = username;
+        this.password = password;
+    }
+
+    public User(String username, String password, String firstname, String lastname, String avatar) {
+        this.username = username;
+        this.password = password;
         this.firstname = firstname;
         this.lastname = lastname;
         this.avatar = avatar;

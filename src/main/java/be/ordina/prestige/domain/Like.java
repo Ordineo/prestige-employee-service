@@ -1,4 +1,4 @@
-package be.ordina.prestige.model;
+package be.ordina.prestige.domain;
 
 import lombok.AccessLevel;
 import lombok.Getter;

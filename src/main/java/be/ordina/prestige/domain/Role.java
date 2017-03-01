@@ -1,4 +1,4 @@
-package be.ordina.prestige.model;
+package be.ordina.prestige.domain;
 
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -17,18 +17,18 @@ import javax.persistence.Id;
 @Getter
 @Setter
 @Entity
-public class Category {
+public class Role {
 
     // Primary Key
     @Id
     @GeneratedValue
     private int id;
 
-    @Column(name = "name", length = 60)
-    private String name;
+    @Column(name = "title", length = 100)
+    private String title;
 
-    public Category(String name) {
-        this.name = name;
+    public Role(String title) {
+        this.title = title;
     }
 
 }
