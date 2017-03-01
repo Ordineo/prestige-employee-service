@@ -17,7 +17,7 @@ public class Prestige {
     // Primary Key
     @Id
     @GeneratedValue
-    private int pid;
+    private int id;
 
     // Foreign Keys
     @ManyToMany

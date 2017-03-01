@@ -19,7 +19,7 @@ public class Category {
     // Primary Key
     @Id
     @GeneratedValue
-    private int cid;
+    private int id;
 
     @Column(name = "name", length = 60)
     private String name;

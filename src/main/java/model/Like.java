@@ -17,7 +17,7 @@ public class Like {
     // Primary Key
     @Id
     @GeneratedValue
-    private int lid;
+    private int id;
 
     // Foreign Keys
     @ManyToOne

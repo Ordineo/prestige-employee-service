@@ -19,7 +19,7 @@ public class Role {
     // Primary Key
     @Id
     @GeneratedValue
-    private int rid;
+    private int id;
 
     @Column(name = "title", length = 100)
     private String title;

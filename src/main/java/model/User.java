@@ -19,7 +19,7 @@ public class User {
     // Primary Key
     @Id
     @GeneratedValue
-    private int uid;
+    private int id;
 
     @Column(name = "username", length = 40)
     private String username;
