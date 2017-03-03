@@ -23,13 +23,11 @@ public class PrestigeService {
         this.prestigeRepository = prestigeRepository;
     }
 
-    public Prestige createPrestige(Collection<Category> categories, User receiver, User grantor,
-                                   int score, Date created, String reason) {
+    public Prestige createPrestige(Collection<Category> categories, User receiver, User grantor, int score, Date created, String reason) {
         return prestigeRepository.save(new Prestige(grantor, receiver, categories, score, reason));
     }
 
-    public Prestige createPrestige(Collection<Category> categories, User receiver, User grantor,
-                                   int score, Date created, String reason, String url) {
+    public Prestige createPrestige(Collection<Category> categories, User receiver, User grantor, int score, Date created, String reason, String url) {
         return prestigeRepository.save(new Prestige(grantor, receiver, categories, score, reason, url));
     }
 }
