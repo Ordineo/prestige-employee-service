@@ -1,6 +1,6 @@
-package be.ordina.prestige.services;
+package be.ordina.prestige.service;
 
-import be.ordina.prestige.domain.User;
+import be.ordina.prestige.model.User;
 import be.ordina.prestige.repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

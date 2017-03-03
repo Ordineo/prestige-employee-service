@@ -1,4 +1,4 @@
-package be.ordina.prestige.domain;
+package be.ordina.prestige.model;
 
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
 
 /**
@@ -15,20 +17,23 @@ import java.util.Date;
 @Getter
 @Setter
 @Entity
-public class Prestige {
+public class Prestige implements Serializable {
 
     // Primary Key
     @Id
+    @Column(name = "PRESTIGE_ID", nullable = false)
     @GeneratedValue
     private int id;
 
-    // Foreign Keys
-    @OneToOne
+//     Foreign Keys
+    @ManyToOne
     private User grantor;
-    @OneToOne
+    @ManyToOne
     private User receiver;
-    @ManyToMany
-    private Category category;
+    @ManyToMany(mappedBy = "prestiges")
+    private Collection<Category> categories;
+    @OneToMany
+    private Collection<PrestigeLike> likes;
 
     @Column (name = "score")
     private int score;
@@ -41,20 +46,19 @@ public class Prestige {
     @Temporal(TemporalType.DATE)
     private Date created;
 
-    public Prestige(User grantor, User receiver, Category category, int score, String reason) {
+    public Prestige(User grantor, User receiver, Collection<Category> categories, int score, String reason) {
         this.grantor = grantor;
         this.receiver = receiver;
-        this.category = category;
+        this.categories = categories;
         this.score = score;
         this.url = reason;
     }
 
-    public Prestige(User grantor, User receiver, Category category, int score, String reason, String url) {
+    public Prestige(User grantor, User receiver,Collection<Category> categories, int score, String reason, String url) {
         this.grantor = grantor;
         this.receiver = receiver;
-        this.category = category;
+        this.categories = categories;
         this.score = score;
-        this.created = created;
         this.reason = reason;
         this.url = url;
     }

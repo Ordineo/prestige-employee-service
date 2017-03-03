@@ -1,4 +1,4 @@
-package be.ordina.prestige.domain;
+package be.ordina.prestige.model;
 
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Collection;
 
 /**
  * Created by SaFu on 28/02/2017.
@@ -14,21 +16,21 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity
-public class RoleAssignment {
+public class Role implements Serializable {
 
     // Primary Key
     @Id
     @GeneratedValue
     private int id;
 
-    // Foreign Keys
-    @ManyToOne
-    private User user;
-    @ManyToOne
-    private Role role;
+    @Column(name = "title", length = 100)
+    private String title;
 
-    public RoleAssignment(User user, Role role) {
-        this.user = user;
-        this.role = role;
+    @ManyToMany
+    private Collection<User> users;
+
+    public Role(String title) {
+        this.title = title;
     }
+
 }

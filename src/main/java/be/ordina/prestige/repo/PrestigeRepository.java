@@ -1,6 +1,6 @@
 package be.ordina.prestige.repo;
 
-import be.ordina.prestige.domain.Prestige;
+import be.ordina.prestige.model.Prestige;
 import org.springframework.data.repository.CrudRepository;
 
 /**

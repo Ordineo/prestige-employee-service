@@ -1,12 +1,13 @@
-package be.ordina.prestige.services;
+package be.ordina.prestige.service;
 
-import be.ordina.prestige.domain.Category;
-import be.ordina.prestige.domain.Prestige;
-import be.ordina.prestige.domain.User;
+import be.ordina.prestige.model.Category;
+import be.ordina.prestige.model.Prestige;
+import be.ordina.prestige.model.User;
 import be.ordina.prestige.repo.PrestigeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
 import java.util.Date;
 
 /**
@@ -22,13 +23,13 @@ public class PrestigeService {
         this.prestigeRepository = prestigeRepository;
     }
 
-    public Prestige createPrestige(Category category, User receiver, User grantor,
+    public Prestige createPrestige(Collection<Category> categories, User receiver, User grantor,
                                    int score, Date created, String reason) {
-        return prestigeRepository.save(new Prestige(grantor, receiver, category, score, reason));
+        return prestigeRepository.save(new Prestige(grantor, receiver, categories, score, reason));
     }
 
-    public Prestige createPrestige(Category category, User receiver, User grantor,
+    public Prestige createPrestige(Collection<Category> categories, User receiver, User grantor,
                                    int score, Date created, String reason, String url) {
-        return prestigeRepository.save(new Prestige(grantor, receiver, category, score, reason, url));
+        return prestigeRepository.save(new Prestige(grantor, receiver, categories, score, reason, url));
     }
 }
