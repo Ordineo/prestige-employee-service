@@ -7,13 +7,15 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by SaFu on 28/02/2017.
  */
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor(access = AccessLevel.PUBLIC)
 @Getter
 @Setter
 @Entity
@@ -30,37 +32,47 @@ public class Prestige implements Serializable {
     private User grantor;
     @ManyToOne
     private User receiver;
-    @ManyToMany(mappedBy = "prestiges")
+    @ManyToMany
+    @JoinTable(name = "PRESTIGE_CATEGORY", joinColumns = {
+            @JoinColumn(name = "PRESTIGE_ID")
+    }, inverseJoinColumns = {
+            @JoinColumn(name = "CATEGORY_ID")
+    })
     private Collection<Category> categories;
-    @OneToMany
-    private Collection<PrestigeLike> likes;
+    @OneToMany(mappedBy = "prestige", cascade = CascadeType.PERSIST)
+    private List<PrestigeLike> prestigeLikes = new ArrayList<>();
 
-    @Column (name = "score")
+    @Column (name = "SCORE")
     private int score;
-    @Column(name = "reason", length = 500)
+    @Column(name = "REASON", length = 500)
     private String reason;
-    @Column(name = "url", length = 300)
+    @Column(name = "URL", length = 300)
     private String url;
 
-    @Column(name = "created", insertable = false)
+    @Column(name = "CREATED", columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP", insertable = false, updatable = false)
     @Temporal(TemporalType.DATE)
     private Date created;
 
-    public Prestige(User grantor, User receiver, Collection<Category> categories, int score, String reason) {
+    public Prestige(User grantor, User receiver, Collection<Category> categories, int score, String url, String reason, Collection<PrestigeLike> prestigeLikes) {
         this.grantor = grantor;
         this.receiver = receiver;
         this.categories = categories;
         this.score = score;
-        this.url = reason;
+        this.url = url;
+        this.reason = reason;
+        /*this.prestigeLikes = prestigeLikes;*/
     }
 
-    public Prestige(User grantor, User receiver,Collection<Category> categories, int score, String reason, String url) {
-        this.grantor = grantor;
-        this.receiver = receiver;
-        this.categories = categories;
-        this.score = score;
-        this.reason = reason;
-        this.url = url;
+    public Prestige addCategory(Category category) {
+        this.categories.add(category);
+        category.getPrestiges().add(this);
+        return this;
+    }
+
+    public Prestige addPrestigeLike(PrestigeLike prestigeLike) {
+        this.prestigeLikes.add(prestigeLike);
+        prestigeLike.setPrestige(this);
+        return this;
     }
 
 }

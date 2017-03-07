@@ -39,20 +39,21 @@ public class User implements Serializable {
     private Collection<Prestige> grantedPrestiges;
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "receiver")
     private Collection<Prestige> receivedPrestiges;
-    @ManyToMany(mappedBy = "users")
+    @ManyToMany
+    @JoinTable(name = "USER_ROLE", joinColumns = {
+            @JoinColumn(name = "USER_ID")
+    }, inverseJoinColumns = {
+            @JoinColumn(name = "ROLE_ID")
+    })
     private Collection<Role> roles;
 
-    public User(String username, String password) {
-        this.username = username;
-        this.password = password;
-    }
-
-    public User(String username, String password, String firstName, String lastName, String avatar) {
+    public User(String username, String password, String firstName, String lastName, String avatar, Collection<Role> roles) {
         this.username = username;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
         this.avatar = avatar;
+        this.roles = roles;
     }
 
 }

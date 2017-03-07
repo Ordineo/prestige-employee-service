@@ -1,0 +1,127 @@
+{
+  "_embedded": {
+    "users": [
+      {
+        "username": "dswaggins",
+        "password": "derp123",
+        "firstName": "Dildo",
+        "lastName": "Swaggins",
+        "avatar": "http://www.uidownload.com/files/232/925/277/avatar-face-icon.png",
+        "roles": [],
+        "_links": {
+          "self": {
+            "href": "http://localhost:8585/employee-service/users/1"
+          },
+          "user": {
+            "href": "http://localhost:8585/employee-service/users/1"
+          },
+          "grantedPrestiges": {
+            "href": "http://localhost:8585/employee-service/users/1/grantedPrestiges"
+          },
+          "receivedPrestiges": {
+            "href": "http://localhost:8585/employee-service/users/1/receivedPrestiges"
+          }
+        }
+      },
+      {
+        "username": "user1",
+        "password": "derp123",
+        "firstName": "sammi",
+        "lastName": "fux",
+        "avatar": "http://www.uidownload.com/files/232/925/277/avatar-face-icon.png",
+        "roles": [],
+        "_links": {
+          "self": {
+            "href": "http://localhost:8585/employee-service/users/2"
+          },
+          "user": {
+            "href": "http://localhost:8585/employee-service/users/2"
+          },
+          "grantedPrestiges": {
+            "href": "http://localhost:8585/employee-service/users/2/grantedPrestiges"
+          },
+          "receivedPrestiges": {
+            "href": "http://localhost:8585/employee-service/users/2/receivedPrestiges"
+          }
+        }
+      },
+      {
+        "username": "user2",
+        "password": "derp123",
+        "firstName": "joris",
+        "lastName": "lf",
+        "avatar": "http://www.uidownload.com/files/232/925/277/avatar-face-icon.png",
+        "roles": [],
+        "_links": {
+          "self": {
+            "href": "http://localhost:8585/employee-service/users/3"
+          },
+          "user": {
+            "href": "http://localhost:8585/employee-service/users/3"
+          },
+          "grantedPrestiges": {
+            "href": "http://localhost:8585/employee-service/users/3/grantedPrestiges"
+          },
+          "receivedPrestiges": {
+            "href": "http://localhost:8585/employee-service/users/3/receivedPrestiges"
+          }
+        }
+      },
+      {
+        "username": "user3",
+        "password": "derp123",
+        "firstName": "ken",
+        "lastName": "",
+        "avatar": "http://www.uidownload.com/files/232/925/277/avatar-face-icon.png",
+        "roles": [],
+        "_links": {
+          "self": {
+            "href": "http://localhost:8585/employee-service/users/4"
+          },
+          "user": {
+            "href": "http://localhost:8585/employee-service/users/4"
+          },
+          "grantedPrestiges": {
+            "href": "http://localhost:8585/employee-service/users/4/grantedPrestiges"
+          },
+          "receivedPrestiges": {
+            "href": "http://localhost:8585/employee-service/users/4/receivedPrestiges"
+          }
+        }
+      },
+      {
+        "username": "user4",
+        "password": "derp123",
+        "firstName": "ines",
+        "lastName": "vds",
+        "avatar": "http://www.uidownload.com/files/232/925/277/avatar-face-icon.png",
+        "roles": [],
+        "_links": {
+          "self": {
+            "href": "http://localhost:8585/employee-service/users/5"
+          },
+          "user": {
+            "href": "http://localhost:8585/employee-service/users/5"
+          },
+          "grantedPrestiges": {
+            "href": "http://localhost:8585/employee-service/users/5/grantedPrestiges"
+          },
+          "receivedPrestiges": {
+            "href": "http://localhost:8585/employee-service/users/5/receivedPrestiges"
+          }
+        }
+      }
+    ]
+  },
+  "_links": {
+    "self": {
+      "href": "http://localhost:8585/employee-service/users"
+    },
+    "profile": {
+      "href": "http://localhost:8585/employee-service/profile/users"
+    },
+    "search": {
+      "href": "http://localhost:8585/employee-service/users/search"
+    }
+  }
+}

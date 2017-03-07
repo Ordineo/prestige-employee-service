@@ -20,13 +20,14 @@ public class Role implements Serializable {
 
     // Primary Key
     @Id
+    @Column(name = "ROLE_ID", nullable = false)
     @GeneratedValue
     private int id;
 
-    @Column(name = "title", length = 100)
+    @Column(name = "TITLE", length = 100)
     private String title;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "roles")
     private Collection<User> users;
 
     public Role(String title) {
