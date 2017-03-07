@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * Created by SaFu on 28/02/2017.
  */
-@NoArgsConstructor(access = AccessLevel.PUBLIC)
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @Setter
 @Entity
@@ -39,7 +39,7 @@ public class Prestige implements Serializable {
             @JoinColumn(name = "CATEGORY_ID")
     })
     private Collection<Category> categories;
-    @OneToMany(mappedBy = "prestige", cascade = CascadeType.PERSIST)
+    @OneToMany(/*mappedBy = "prestige"*//*, cascade = CascadeType.ALL*/)
     private List<PrestigeLike> prestigeLikes = new ArrayList<>();
 
     @Column (name = "SCORE")
@@ -53,14 +53,14 @@ public class Prestige implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date created;
 
-    public Prestige(User grantor, User receiver, Collection<Category> categories, int score, String url, String reason, Collection<PrestigeLike> prestigeLikes) {
+    public Prestige(User grantor, User receiver, Collection<Category> categories, int score, String url, String reason, List<PrestigeLike> prestigeLikes) {
         this.grantor = grantor;
         this.receiver = receiver;
         this.categories = categories;
         this.score = score;
         this.url = url;
         this.reason = reason;
-        /*this.prestigeLikes = prestigeLikes;*/
+        this.prestigeLikes = prestigeLikes;
     }
 
     public Prestige addCategory(Category category) {

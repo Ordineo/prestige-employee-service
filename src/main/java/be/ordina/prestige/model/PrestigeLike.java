@@ -28,6 +28,7 @@ public class PrestigeLike {
     @ManyToOne
     private User user;
     @ManyToOne
+    @JoinColumn(name = "PRESTIGE_ID")
     private Prestige prestige;
 
     @Column(name = "REASON", length = 500)
