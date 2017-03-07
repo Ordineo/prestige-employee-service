@@ -16,12 +16,13 @@ import java.util.Collection;
 @Getter
 @Setter
 @Entity
+@Table(name = "CATEGORY")
 public class Category implements Serializable {
 
     // Primary Key
     @Id
     @Column(name = "CATEGORY_ID", nullable = false)
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @ManyToMany(mappedBy = "categories")

@@ -19,12 +19,13 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
+@Table(name = "PRESTIGE")
 public class Prestige implements Serializable {
 
     // Primary Key
     @Id
     @Column(name = "PRESTIGE_ID", nullable = false)
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
 //     Foreign Keys
@@ -39,7 +40,9 @@ public class Prestige implements Serializable {
             @JoinColumn(name = "CATEGORY_ID")
     })
     private Collection<Category> categories;
-    @OneToMany(/*mappedBy = "prestige"*//*, cascade = CascadeType.ALL*/)
+
+    // Todo investigate why the bidirectional relation does not work
+    @OneToMany
     private List<PrestigeLike> prestigeLikes = new ArrayList<>();
 
     @Column (name = "SCORE")

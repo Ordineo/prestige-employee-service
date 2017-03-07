@@ -16,6 +16,7 @@ import java.util.Date;
 @Getter
 @Setter
 @Entity
+@Table(name = "PRESTIGE_LIKE")
 public class PrestigeLike {
 
     // Primary Key
@@ -27,6 +28,8 @@ public class PrestigeLike {
     // Foreign Keys
     @ManyToOne
     private User user;
+
+    // Todo investigate why the bidirectional relation does not work
     @ManyToOne
     @JoinColumn(name = "PRESTIGE_ID")
     private Prestige prestige;

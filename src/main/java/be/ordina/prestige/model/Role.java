@@ -16,12 +16,13 @@ import java.util.Collection;
 @Getter
 @Setter
 @Entity
+@Table(name = "ROLE")
 public class Role implements Serializable {
 
     // Primary Key
     @Id
     @Column(name = "ROLE_ID", nullable = false)
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(name = "TITLE", length = 100)

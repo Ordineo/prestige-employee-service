@@ -7,7 +7,9 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 /**
  * Created by SaFu on 28/02/2017.
@@ -16,12 +18,13 @@ import java.util.Collection;
 @Getter
 @Setter
 @Entity
+@Table(name = "USER")
 public class User implements Serializable {
 
     // Primary Key
     @Id
     @Column(name = "USER_ID", nullable = false)
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(name = "USERNAME", length = 40)
@@ -36,9 +39,9 @@ public class User implements Serializable {
     private String avatar;
 
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "grantor")
-    private Collection<Prestige> grantedPrestiges;
+    private List<Prestige> grantedPrestiges = new ArrayList<>();
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "receiver")
-    private Collection<Prestige> receivedPrestiges;
+    private List<Prestige> receivedPrestiges = new ArrayList<>();
     @ManyToMany
     @JoinTable(name = "USER_ROLE", joinColumns = {
             @JoinColumn(name = "USER_ID")
