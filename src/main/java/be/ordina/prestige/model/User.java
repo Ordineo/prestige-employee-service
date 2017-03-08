@@ -31,6 +31,8 @@ public class User implements Serializable {
     private String username;
     @Column(name = "PASSWORD", length = 40)
     private String password;
+    @Column(name = "EMAIL", length = 50)
+    private String email;
     @Column(name = "FIRSTNAME", length = 60)
     private String firstName;
     @Column(name = "LASTNAME", length = 60)
@@ -51,9 +53,10 @@ public class User implements Serializable {
     })
     private Collection<Role> roles;
 
-    public User(String username, String password, String firstName, String lastName, String avatar, Collection<Role> roles) {
+    public User(String username, String password, String email, String firstName, String lastName, String avatar, Collection<Role> roles) {
         this.username = username;
         this.password = password;
+        this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
         this.avatar = avatar;

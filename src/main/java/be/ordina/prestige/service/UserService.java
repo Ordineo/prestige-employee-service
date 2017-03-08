@@ -21,8 +21,8 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public User createUser(String username, String password, String firstname, String lastname, String avatar, Collection<Role> roles) {
-        return userRepository.save(new User(username, password, firstname, lastname, avatar, roles));
+    public User createUser(String username, String password, String email, String firstname, String lastname, String avatar, Collection<Role> roles) {
+        return userRepository.save(new User(username, password, email, firstname, lastname, avatar, roles));
     }
 
     public Iterable<User> lookup() {
