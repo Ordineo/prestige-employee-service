@@ -35,10 +35,4 @@ public class Category implements Serializable {
         this.name = name;
     }
 
-    public Category addPrestige(Prestige prestige) {
-        this.prestiges.add(prestige);
-        prestige.getCategories().add(this);
-        return this;
-    }
-
 }

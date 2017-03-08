@@ -24,9 +24,9 @@ public class PrestigeService {
         this.prestigeRepository = prestigeRepository;
     }
 
-    public Prestige createPrestige(User grantor, User receiver, Collection<Category> categories, int score, String url, String reason, List<PrestigeLike> prestigeLikes) {
+    public Prestige createPrestige(int score, String url, String reason) {
 
-        return prestigeRepository.save(new Prestige(grantor, receiver, categories, score, url, reason, prestigeLikes));
+        return prestigeRepository.save(new Prestige(score, url, reason));
 
     }
 

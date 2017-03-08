@@ -55,26 +55,10 @@ public class Prestige implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date created;
 
-    public Prestige(User grantor, User receiver, Collection<Category> categories, int score, String url, String reason, List<PrestigeLike> prestigeLikes) {
-        this.grantor = grantor;
-        this.receiver = receiver;
-        this.categories = categories;
+    public Prestige(int score, String url, String reason) {
         this.score = score;
         this.url = url;
         this.reason = reason;
-        this.prestigeLikes = prestigeLikes;
-    }
-
-    public Prestige addCategory(Category category) {
-        this.categories.add(category);
-        category.getPrestiges().add(this);
-        return this;
-    }
-
-    public Prestige addPrestigeLike(PrestigeLike prestigeLike) {
-        this.prestigeLikes.add(prestigeLike);
-        prestigeLike.setPrestige(this);
-        return this;
     }
 
 }

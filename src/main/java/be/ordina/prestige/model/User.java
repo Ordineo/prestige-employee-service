@@ -39,6 +39,12 @@ public class User implements Serializable {
     private String lastName;
     @Column(name = "AVATAR", length = 300)
     private String avatar;
+    @Column(name = "PHONE", length = 15)
+    private String phone;
+    @Column(name = "UNIT", length = 15)
+    private String unit;
+    @Column(name = "GENDER", length = 20)
+    private String gender;
 
     // Foreign Keys
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "grantor")
@@ -53,14 +59,16 @@ public class User implements Serializable {
     })
     private Collection<Role> roles;
 
-    public User(String username, String password, String email, String firstName, String lastName, String avatar, Collection<Role> roles) {
+    public User(String username, String password, String email, String firstName, String lastName, String avatar, String phone, String unit, String gender) {
         this.username = username;
         this.password = password;
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
         this.avatar = avatar;
-        this.roles = roles;
+        this.phone = phone;
+        this.unit = unit;
+        this.gender = gender;
     }
 
 }
