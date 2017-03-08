@@ -13,7 +13,7 @@ import java.util.List;
 
 @SpringBootApplication
 // @EnableEurekaClient
-public class PrestigeEmployeeServiceApplication implements CommandLineRunner {
+public class PrestigeEmployeeServiceApplication /*implements CommandLineRunner*/ {
 
 	@Autowired
 	private UserService userService;
@@ -30,7 +30,7 @@ public class PrestigeEmployeeServiceApplication implements CommandLineRunner {
 		SpringApplication.run(PrestigeEmployeeServiceApplication.class, args);
 	}
 
-	@Override
+	/*@Override
 	public void run(String... strings) throws Exception {
 
 		Role user = roleService.createRole("user");
@@ -67,11 +67,11 @@ public class PrestigeEmployeeServiceApplication implements CommandLineRunner {
 //		likes2.add(prestigeLikeService.createLike(new PrestigeLike(user2, "top presentatie")));
 
 		Prestige prestige1 = prestigeService.createPrestige(user1, user2, categories1, 1, "http://www.google.com", "Omdat het kan", likes1);
-		//Prestige prestige2 = prestigeService.createPrestige(dswaggins, user4, categories2, 5, "", "Wrm, Drm"/*, likes2*/);
+		//Prestige prestige2 = prestigeService.createPrestige(dswaggins, user4, categories2, 5, "", "Wrm, Drm"*//*, likes2*//*);
 
 		//prestige1.addPrestigeLike(prestigeLikeService.createLike(new PrestigeLike(user3, "twas een schone presentatie")));
 		//prestigeLikeService.lookup().forEach(PrestigeLike -> System.out.println());
 
-	}
+	}*/
 
 }

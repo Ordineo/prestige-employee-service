@@ -16,12 +16,12 @@ import java.util.Date;
 @Getter
 @Setter
 @Entity
-@Table(name = "PRESTIGE_LIKE")
+@Table(name = "PRESTIGE_LIKES")
 public class PrestigeLike {
 
     // Primary Key
     @Id
-    @Column(name = "LIKE_ID", nullable = false)
+    @Column(name = "ID", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
@@ -29,9 +29,7 @@ public class PrestigeLike {
     @ManyToOne
     private User user;
 
-    // Todo investigate why the bidirectional relation does not work
     @ManyToOne
-    @JoinColumn(name = "PRESTIGE_ID")
     private Prestige prestige;
 
     @Column(name = "REASON", length = 500)

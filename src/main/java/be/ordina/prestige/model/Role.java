@@ -16,7 +16,7 @@ import java.util.Collection;
 @Getter
 @Setter
 @Entity
-@Table(name = "ROLE")
+@Table(name = "ROLES")
 public class Role implements Serializable {
 
     // Primary Key

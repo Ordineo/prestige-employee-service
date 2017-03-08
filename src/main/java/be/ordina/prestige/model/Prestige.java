@@ -19,12 +19,12 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table(name = "PRESTIGE")
+@Table(name = "PRESTIGES")
 public class Prestige implements Serializable {
 
     // Primary Key
     @Id
-    @Column(name = "PRESTIGE_ID", nullable = false)
+    @Column(name = "ID", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
@@ -34,15 +34,14 @@ public class Prestige implements Serializable {
     @ManyToOne
     private User receiver;
     @ManyToMany
-    @JoinTable(name = "PRESTIGE_CATEGORY", joinColumns = {
+    @JoinTable(name = "CATEGORY_ASSIGNMENTS", joinColumns = {
             @JoinColumn(name = "PRESTIGE_ID")
     }, inverseJoinColumns = {
             @JoinColumn(name = "CATEGORY_ID")
     })
     private Collection<Category> categories;
 
-    // Todo investigate why the bidirectional relation does not work
-    @OneToMany
+    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "prestige")
     private List<PrestigeLike> prestigeLikes = new ArrayList<>();
 
     @Column (name = "SCORE")

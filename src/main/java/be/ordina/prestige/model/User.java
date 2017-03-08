@@ -18,12 +18,12 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table(name = "USER")
+@Table(name = "USERS")
 public class User implements Serializable {
 
     // Primary Key
     @Id
-    @Column(name = "USER_ID", nullable = false)
+    @Column(name = "ID", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
@@ -38,12 +38,13 @@ public class User implements Serializable {
     @Column(name = "AVATAR", length = 300)
     private String avatar;
 
+    // Foreign Keys
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "grantor")
     private List<Prestige> grantedPrestiges = new ArrayList<>();
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "receiver")
     private List<Prestige> receivedPrestiges = new ArrayList<>();
     @ManyToMany
-    @JoinTable(name = "USER_ROLE", joinColumns = {
+    @JoinTable(name = "ROLE_ASSIGNMENTS", joinColumns = {
             @JoinColumn(name = "USER_ID")
     }, inverseJoinColumns = {
             @JoinColumn(name = "ROLE_ID")
