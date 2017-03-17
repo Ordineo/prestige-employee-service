@@ -4,6 +4,7 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.beans.factory.annotation.Value;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -69,6 +70,14 @@ public class User implements Serializable {
         this.phone = phone;
         this.unit = unit;
         this.gender = gender;
+    }
+
+    public String getFullName() {
+        return firstName + " " + lastName;
+    }
+
+    public String toString() {
+        return "This is a user eks dee";
     }
 
 }

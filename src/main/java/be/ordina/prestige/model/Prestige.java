@@ -4,6 +4,7 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.beans.factory.annotation.Value;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -28,9 +29,10 @@ public class Prestige implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-//     Foreign Keys
+    //  Foreign Keys
     @ManyToOne
     private User grantor;
+
     @ManyToOne
     private User receiver;
     @ManyToMany
@@ -44,14 +46,14 @@ public class Prestige implements Serializable {
     @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "prestige")
     private List<PrestigeLike> prestigeLikes = new ArrayList<>();
 
-    @Column (name = "SCORE")
+    @Column(name = "SCORE")
     private int score;
     @Column(name = "REASON", length = 500)
     private String reason;
     @Column(name = "URL", length = 300)
     private String url;
 
-    @Column(name = "CREATED", columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP", insertable = false, updatable = false)
+    @Column(name = "CREATED", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP", insertable = false, updatable = false)
     @Temporal(TemporalType.DATE)
     private Date created;
 
