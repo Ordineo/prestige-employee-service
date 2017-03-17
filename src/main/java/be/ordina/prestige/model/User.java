@@ -72,10 +72,6 @@ public class User implements Serializable {
         this.gender = gender;
     }
 
-    public String getFullName() {
-        return firstName + " " + lastName;
-    }
-
     public String toString() {
         return "This is a user eks dee";
     }

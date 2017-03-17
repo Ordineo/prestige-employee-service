@@ -18,7 +18,7 @@ public class SpringDataRestConfiguration extends RepositoryRestConfigurerAdapter
 
     @Override
     public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
-        config.withEntityLookup().forValueRepository(UserRepository.class, User::getFullName, UserRepository::findByLastName);
+        config.withEntityLookup().forValueRepository(UserRepository.class, User::getUsername, UserRepository::findByUsername);
         config.withEntityLookup().forValueRepository(CategoryRepository.class, Category::getName, CategoryRepository::findByName);
         config.withEntityLookup().forValueRepository(RoleRepository.class, Role::getTitle, RoleRepository::findByTitle);
     }
